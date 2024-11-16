@@ -18,8 +18,13 @@ export default function OrderList({
       .on('postgres_changes', {
         event: 'INSERT',
         schema: 'public',
-      }, (payload: any) => console.log(payload))
+      }, (payload: any) => {
+        setInternalOrders((prevOrders) => [...prevOrders, payload.new]);
+      })
       .subscribe();
+
+    // Actividad: Implementar la lógica para aplicar los cambios en el arreglo de orders
+    // con los datos provenientes de la base de datos (hint: Update).
 
     return () => {
       subscriber.unsubscribe();
