@@ -14,6 +14,6 @@ export default async function ChatPage() {
   }
 
   return (
-    <Chat userId={user.id} />
+    <Chat userId={user.id} email={user.email} />
   )
 }
